@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  mysql1:
+    image: mysql:8.0-bullseye
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword1
+      MYSQL_DATABASE: mydatabase1
+      MYSQL_USER: user1
+      MYSQL_PASSWORD: password1
+    ports:
+      - "33061:3306"
+    volumes:
+      - mysql1_data:/var/lib/mysql
+
+  mysql2:
+    image: mysql:8.0-bullseye
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword2
+      MYSQL_DATABASE: mydatabase2
+      MYSQL_USER: user2
+      MYSQL_PASSWORD: password2
+    ports:
+      - "33062:3306"
+    volumes:
+      - mysql2_data:/var/lib/mysql
+
+volumes:
+  mysql1_data:
+  mysql2_data:
